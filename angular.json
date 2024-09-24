@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Stora": {
+    "stora-c1ca3": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -98,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
