@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Stora:build:production"
+              "buildTarget": "stora-c1ca3:build:production"
             },
             "development": {
-              "buildTarget": "Stora:build:development"
+              "buildTarget": "stora-c1ca3:build:development"
             }
           },
           "defaultConfiguration": "development"
