@@ -1,0 +1,37 @@
+<p-dialog
+    header="Add Product"
+    [(visible)]="display"
+    modal="true"
+    [closable]="false"
+>
+    <div class="p-fluid">
+        <p-inputGroup class="p-field">
+            <label for="name">Name</label>
+            <input
+                id="name"
+                type="text"
+                pInputText
+                [(ngModel)]="storage"
+                placeholder="Name Store"
+            />
+        </p-inputGroup>
+    </div>
+
+    <p-footer>
+        <button
+            type="button"
+            pButton
+            label="Add"
+            icon="pi pi-check"
+            (click)="addStorage()"
+        ></button>
+        <button
+            type="button"
+            pButton
+            label="Cancel"
+            icon="pi pi-times"
+            class="p-button-secondary"
+            (click)="hideDialog()"
+        ></button>
+    </p-footer>
+</p-dialog>

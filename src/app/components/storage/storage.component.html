@@ -1,1 +1,11 @@
-<p>storage works!</p>
+<button
+    pButton
+    label="Add Storage "
+    icon="pi pi-plus"
+    (click)="showAddStorageDialog()"
+></button>
+
+<add-storage-dialog
+    (storageAdded)="onStorageAdded($event)"
+    (dialogClosed)="onDialogClosed()"
+></add-storage-dialog>

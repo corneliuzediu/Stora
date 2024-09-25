@@ -1,1 +1,12 @@
-<p>home works!</p>
+<button
+    pButton
+    label="Add Product"
+    icon="pi pi-plus"
+    (click)="showAddProductDialog()"
+></button>
+
+<!-- Include the AddProductDialog component -->
+<add-product-dialog
+    (productAdded)="onProductAdded($event)"
+    (dialogClosed)="onDialogClosed()"
+></add-product-dialog>

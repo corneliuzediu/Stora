@@ -1,0 +1,12 @@
+<button
+    pButton
+    label="Create Category"
+    icon="pi pi-plus"
+    (click)="showCategoryDialog()"
+></button>
+
+<!-- Include the AddProductDialog component -->
+<add-categories-dialog
+    (categoryAdded)="onCategoryAdded($event)"
+    (dialogClosed)="onDialogClosed()"
+></add-categories-dialog>

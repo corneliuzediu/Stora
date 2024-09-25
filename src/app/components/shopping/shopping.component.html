@@ -1,1 +1,12 @@
-<p>shopping works!</p>
+<button
+    pButton
+    label="Create List"
+    icon="pi pi-plus"
+    (click)="showAddShoppingListDialog()"
+></button>
+
+<!-- Include the AddProductDialog component -->
+<add-shopping-list-dialog
+    (shoppingListAdded)="onShoppingListAdded($event)"
+    (dialogClosed)="onDialogClosed()"
+></add-shopping-list-dialog>

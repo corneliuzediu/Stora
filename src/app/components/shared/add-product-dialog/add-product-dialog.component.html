@@ -1,0 +1,68 @@
+<p-dialog
+    header="Add Product"
+    [(visible)]="display"
+    modal="true"
+    [closable]="false"
+>
+    <div class="p-fluid">
+        <p-inputGroup class="p-field">
+            <label for="name">Name</label>
+            <input
+                id="name"
+                type="text"
+                pInputText
+                [(ngModel)]="product.name"
+            />
+        </p-inputGroup>
+        <p-inputGroup class="p-field">
+            <label for="amount">Amount</label>
+            <input
+                id="amount"
+                type="number"
+                pInputText
+                [(ngModel)]="product.amount"
+            />
+        </p-inputGroup>
+        <p-inputGroup class="p-field">
+            <label for="category">Expire at:</label>
+            <input
+                id="category"
+                type="date"
+                pInputText
+                [(ngModel)]="product.expirationDate"
+            />
+        </p-inputGroup>
+        <p-inputGroup class="p-field">
+            <label for="category">Stored</label>
+            <p-cascadeSelect
+                [(ngModel)]="product.category"
+                [options]="categories"
+                optionLabel="name"
+                optionGroupLabel="cname"
+                [optionGroupChildren]="['subcategories']"
+                [style]="{ minWidth: '14rem' }"
+                placeholder="Select a Category"
+                appendTo="body"
+            />
+        </p-inputGroup>
+        <!-- Add other form fields as needed -->
+    </div>
+
+    <p-footer>
+        <button
+            type="button"
+            pButton
+            label="Add"
+            icon="pi pi-check"
+            (click)="addProduct()"
+        ></button>
+        <button
+            type="button"
+            pButton
+            label="Cancel"
+            icon="pi pi-times"
+            class="p-button-secondary"
+            (click)="hideDialog()"
+        ></button>
+    </p-footer>
+</p-dialog>
