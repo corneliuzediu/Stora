@@ -19,7 +19,7 @@ export class ProductService {
     getProducts(): Observable<any[]> {
         return this.firestore
             .collection<Product>(this.collectionName)
-            .valueChanges({ idField: 'id' });
+            .valueChanges();
     }
 
     // Get a single product by ID

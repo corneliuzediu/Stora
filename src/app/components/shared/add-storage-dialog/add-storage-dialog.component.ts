@@ -21,9 +21,9 @@ import { InputGroupModule } from 'primeng/inputgroup';
 })
 export class AddStorageDialogComponent {
     display: boolean = false;
-    storage: StorageClass = new StorageClass();
+    storage!: string;
 
-    @Output() storageAdded = new EventEmitter<StorageClass>();
+    @Output() storageAdded = new EventEmitter<string>();
     @Output() dialogClosed = new EventEmitter<void>();
 
     showDialog() {

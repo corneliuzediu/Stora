@@ -8,5 +8,16 @@ export class StorageClass {
 
     constructor() {
         this.id = `${Date.now()}`;
+        this.createdTime = new Date().toISOString();
+        this.listProducts = [];
+    }
+
+    toJSON() {
+        return {
+            name: this.name,
+            id: this.id,
+            createdTime: this.createdTime,
+            listProducts: this.listProducts,
+        };
     }
 }

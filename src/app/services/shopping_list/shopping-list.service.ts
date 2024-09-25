@@ -21,7 +21,7 @@ export class ShoppingListService {
     getShoppingLists(): Observable<any[]> {
         return this.firestore
             .collection<ShoppingList>(this.collectionName)
-            .valueChanges({ idField: 'id' });
+            .valueChanges();
     }
 
     // Get a single shopping_list by ID

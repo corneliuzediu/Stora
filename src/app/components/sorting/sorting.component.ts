@@ -20,12 +20,12 @@ export class SortingComponent {
 
     constructor(private categoryService: CategoryService) {}
 
-    ngOnInit() {
-        this.categoryService.getCategories().subscribe((data: Category[]) => {
-            this.categories = data;
-            console.log(this.categories);
-        });
-    }
+    // ngOnInit() {
+    //     this.categoryService.getCategories().subscribe((data: Category[]) => {
+    //         this.categories = data;
+    //         console.log(this.categories);
+    //     });
+    // }
 
     showCategoryDialog() {
         this.addCategoryDialog.showDialog();

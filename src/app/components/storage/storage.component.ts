@@ -3,6 +3,8 @@ import { StorageClass } from '../../../models/storage';
 import { AddStorageDialogComponent } from '../shared/add-storage-dialog/add-storage-dialog.component';
 import { ButtonModule } from 'primeng/button';
 import { FirebaseApp } from '@angular/fire/app';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
     selector: 'app-storage',
@@ -14,21 +16,25 @@ import { FirebaseApp } from '@angular/fire/app';
 export class StorageComponent {
     @ViewChild(AddStorageDialogComponent)
     addStorageDialog!: AddStorageDialogComponent;
+    storages!: StorageClass[];
 
-    storage: StorageClass = new StorageClass();
-
-    constructor(private firebase: FirebaseApp) {}
+    constructor(private storageService: StorageService) {}
 
     ngOnInit() {
-        console.log(this.storage);
+        this.storageService.getStorages().subscribe((data: StorageClass[]) => {
+            this.storages = data;
+            console.log(this.storages);
+        });
     }
 
     showAddStorageDialog() {
         this.addStorageDialog.showDialog();
     }
 
-    onStorageAdded(storage: StorageClass) {
-        console.log(storage);
+    onStorageAdded(storageName: string) {
+        let newStorage = new StorageClass();
+        newStorage.name = storageName;
+        this.storageService.addStorage(newStorage.toJSON());
     }
 
     onDialogClosed() {
