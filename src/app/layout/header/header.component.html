@@ -1,7 +1,17 @@
 <header class="header_wrapper">
-    <i class="pi pi-box"></i>
-    <h1>Stora</h1>
+    <div>
+        <i class="pi pi-box"></i>
+        <h1>Stora</h1>
+    </div>
+    <div>
+        @if(authService.currentUserSig() != null){
+        <p-button (click)="logOut()" label="Logout"></p-button>
+        }
+    </div>
 </header>
+
+@if (this.authService.currentUserSig()) {
 <div class="card">
     <p-tabMenu [model]="items" />
 </div>
+}

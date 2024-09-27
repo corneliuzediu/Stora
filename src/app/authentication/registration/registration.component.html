@@ -1,0 +1,49 @@
+<div class="registration_wrapper">
+    <h2>Registration</h2>
+
+    <form
+        [formGroup]="form"
+        class="card flex justify-content-center"
+        (ngSubmit)="onSubmit()"
+    >
+        <!-- Email -->
+        <p-floatLabel>
+            <input
+                pInputText
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                formControlName="email"
+            />
+            <label for="email">E-mail</label>
+        </p-floatLabel>
+
+        <!-- Password -->
+        <p-floatLabel>
+            <input
+                type="password"
+                pInputText
+                id="password "
+                placeholder="Password"
+                formControlName="password"
+            />
+            <label for="password">Password</label>
+        </p-floatLabel>
+
+        <!-- Verify Password -->
+        <p-floatLabel>
+            <input
+                type="password"
+                pInputText
+                id="varify_password"
+                formControlName="verify_password"
+            />
+            <label for="varify_password">Verify Password</label>
+        </p-floatLabel>
+        <p-button label="Register" type="submit" [disabled]="form.invalid" />
+
+        @if (errorMessage) {
+        <h3>{{ errorMessage }}</h3>
+        }
+    </form>
+</div>

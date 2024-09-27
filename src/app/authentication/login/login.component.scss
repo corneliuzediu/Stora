@@ -1,0 +1,35 @@
+:host {
+    height: 100%;
+}
+
+.registration_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 3rem;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.8rem;
+        height: 100%;
+        padding: 2rem;
+        border: 2px solid rgb(0, 162, 255);
+        border-radius: 10px;
+
+        p-floatLabel {
+            width: 100%;
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.cta-btn {
+    display: flex;
+    gap: 0.5rem;
+}
