@@ -5,6 +5,7 @@ import { ShoppingComponent } from './components/shopping/shopping.component';
 import { SortingComponent } from './components/sorting/sorting.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
 import { LoginComponent } from './authentication/login/login.component';
+import { AccountComponent } from './components/account/account.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
     { path: 'storage', component: StorageComponent },
     { path: 'shopping', component: ShoppingComponent },
     { path: 'sort', component: SortingComponent },
+    { path: 'account', component: AccountComponent },
 ];

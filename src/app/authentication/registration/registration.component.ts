@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
 
 @Component({
     selector: 'app-registration',
@@ -24,6 +24,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
         ReactiveFormsModule,
         ButtonModule,
         InputTextModule,
+        PasswordModule,
     ],
     templateUrl: './registration.component.html',
     styleUrl: './registration.component.scss',
@@ -44,17 +45,16 @@ export class RegistrationComponent {
     errorMessage: string | null = null;
 
     onSubmit(): void {
-        debugger;
         const rawForm = this.form.getRawValue();
         if (rawForm.password === rawForm.verify_password) {
             this.authService
                 .register(rawForm.email, rawForm.username, rawForm.password)
                 .subscribe({
                     next: () => {
-                        this.router.navigateByUrl('/login');
+                        this.router.navigateByUrl('');
                     },
                     error: (err) => {
-                        this.errorMessage = 'Please add valid data!';
+                        this.errorMessage = err;
                     },
                 });
         } else if (rawForm.password !== rawForm.verify_password) {
@@ -64,5 +64,9 @@ export class RegistrationComponent {
             console.log('p', rawForm.password);
             console.log('p2', rawForm.verify_password);
         }
+    }
+
+    goToLogin(){
+        this.router.navigateByUrl('login')
     }
 }

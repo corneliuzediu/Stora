@@ -1,0 +1,84 @@
+<div *ngIf="user" class="account_wrapper">
+    <h2>Account Settings</h2>
+    <form
+        [formGroup]="accountForm"
+        (ngSubmit)="onSubmit()"
+        class="card flex justify-content-center"
+    >
+        <!-- Account Details  -->
+        <div class="account_subsection">
+            <p-floatLabel>
+                <input
+                    pInputText
+                    id="username"
+                    type="text"
+                    formControlName="username"
+                    placeholder="Username"
+                />
+                <label for="username">Username:</label>
+            </p-floatLabel>
+            <div
+                *ngIf="
+                    accountForm.get('username')?.invalid &&
+                    accountForm.get('username')?.touched
+                "
+            >
+                Username is required.
+            </div>
+        </div>
+
+        <!-- Group Details -->
+        <div class="account_subsection">
+            <p-floatLabel>
+                <input
+                    pInputText
+                    id="groupName"
+                    type="text"
+                    formControlName="groupName"
+                    placeholder="Group Name"
+                />
+                <label for="groupName">Group Name:</label>
+            </p-floatLabel>
+            <div
+                *ngIf="
+                    accountForm.get('groupName')?.invalid &&
+                    accountForm.get('groupName')?.touched
+                "
+            >
+                Group Name is required.
+            </div>
+        </div>
+
+        <!-- Invite new member -->
+
+        <div class="account_subsection">
+            <p-floatLabel>
+                <input
+                    pInputText
+                    id="inviteEmail"
+                    type="email"
+                    placeholder="Invite E-mail"
+                    [formControl]="inviteEmailControl"
+                />
+                <label for="inviteEmail">Invite user via E-main</label>
+                <p-button
+                    label="Invite"
+                    (onClick)="addMember()"
+                    [disabled]="
+                        inviteEmailControl.invalid ||
+                        inviteEmailControl.pristine
+                    "
+                ></p-button>
+            </p-floatLabel>
+            <div
+                *ngIf="inviteEmailControl.invalid && inviteEmailControl.touched"
+            >
+                Please enter a valid email
+            </div>
+        </div>
+
+        <p-button type="submit" [disabled]="accountForm.invalid">
+            Save Changes
+        </p-button>
+    </form>
+</div>

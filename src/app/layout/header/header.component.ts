@@ -4,11 +4,12 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { AuthService } from '../../services/auth/auth.service';
 import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [TabMenuModule, ButtonModule],
+    imports: [TabMenuModule, ButtonModule, CommonModule],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
 })
@@ -27,7 +28,7 @@ export class HeaderComponent {
             } else {
                 this.authService.currentUserSig.set(null);
             }
-            console.log(this.authService.currentUserSig());
+            // console.log(this.authService.currentUserSig());
         });
 
         this.items = [
@@ -39,7 +40,12 @@ export class HeaderComponent {
             },
             { label: 'Shopping', icon: 'pi pi-list', routerLink: 'shopping' },
             { label: 'Sort', icon: 'pi pi-sort', routerLink: 'sort' },
+            { label: 'Account', icon: 'pi pi-user', routerLink: 'account' },
         ];
+    }
+
+    logIn() {
+        this.router.navigateByUrl('login');
     }
 
     logOut() {

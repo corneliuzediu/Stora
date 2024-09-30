@@ -6,7 +6,19 @@
         class="card flex justify-content-center"
         (ngSubmit)="onSubmit()"
     >
-        <!-- Email -->
+        <!-- Username -->
+        <p-floatLabel>
+            <input
+                pInputText
+                type="username"
+                id="username"
+                placeholder="Username"
+                formControlName="username"
+            />
+            <label for="username">Username</label>
+        </p-floatLabel>
+
+        <!-- E-mail -->
         <p-floatLabel>
             <input
                 pInputText
@@ -20,27 +32,41 @@
 
         <!-- Password -->
         <p-floatLabel>
-            <input
+            <p-password
                 type="password"
-                pInputText
                 id="password "
                 placeholder="Password"
                 formControlName="password"
+                [feedback]="false"
+                [toggleMask]="true"
             />
             <label for="password">Password</label>
         </p-floatLabel>
 
         <!-- Verify Password -->
         <p-floatLabel>
-            <input
+            <p-password
                 type="password"
-                pInputText
                 id="varify_password"
                 formControlName="verify_password"
+                [feedback]="false"
+                [toggleMask]="true"
             />
             <label for="varify_password">Verify Password</label>
         </p-floatLabel>
-        <p-button label="Register" type="submit" [disabled]="form.invalid" />
+        <div class="cta-btn">
+            <p-button
+                label="Register"
+                type="submit"
+                [disabled]="form.invalid"
+            />
+            <p-button
+                label="Register"
+                type="submit"
+                label="Go to Login"
+                (onClick)="goToLogin()"
+            />
+        </div>
 
         @if (errorMessage) {
         <h3>{{ errorMessage }}</h3>

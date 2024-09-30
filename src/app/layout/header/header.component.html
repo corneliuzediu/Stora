@@ -3,15 +3,11 @@
         <i class="pi pi-box"></i>
         <h1>Stora</h1>
     </div>
-    <div>
-        @if(authService.currentUserSig() != null){
+    <div *ngIf="authService.user$ | async as user">
         <p-button (click)="logOut()" label="Logout"></p-button>
-        }
     </div>
 </header>
 
-@if (this.authService.currentUserSig()) {
-<div class="card">
+<div *ngIf="this.authService.currentUserSig()" class="card">
     <p-tabMenu [model]="items" />
 </div>
-}
